@@ -1,32 +1,35 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
+    <SideNavigation> </SideNavigation>
+    <div class="content">
+      <TopNavigation></TopNavigation>
+      <router-view />
+    </div>
   </div>
 </template>
 
+<script>
+import TopNavigation from "./components/TopNavigation.vue";
+import SideNavigation from "./components/SideNavigation.vue";
+export default {
+  name: "App",
+  components: { TopNavigation, SideNavigation },
+  mounted() {},
+};
+</script>
+
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.content {
+  width: 100%;
+  margin-left: 10px;
 }
 </style>
